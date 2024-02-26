@@ -1,7 +1,9 @@
 module NumerosPrimos where
 
 numPrimos::Int -> [Int] 
-numPrimos n = filter esPrimo [1..n]
+numPrimos n = [x | x <- [2..n], esPrimo x]
+-- Otra forma de hacerlo: 
+-- numPrimos n = filter esPrimo [1..n]
 
 esPrimo :: Int -> Bool
 esPrimo 1 = False
