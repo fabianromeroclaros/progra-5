@@ -1,4 +1,4 @@
-module Histo where
+module Histograma where
 
 frecuencia :: [Int] -> [Int]
 frecuencia xs = [length (filter (\x -> x == n) xs) | n <- [0..9]]
