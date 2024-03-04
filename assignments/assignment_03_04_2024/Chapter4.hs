@@ -62,12 +62,8 @@ mult = \x -> \y -> \z -> x * y * z
 -}
 luhnDouble :: Int -> Int
 luhnDouble x
-  | doubled > 9 = doubled - 9
-  | otherwise = doubled
-  where
-    doubled = x * 2
+  | x * 2 > 9 = x * 2 - 9
+  | otherwise = x * 2
 
 luhn :: Int -> Int -> Int -> Int -> Bool
-luhn a b c d = mod total 10 == 0
-  where
-    total = luhnDouble a + b + luhnDouble c + d
+luhn a b c d = mod (luhnDouble a + b + luhnDouble c + d) 10 == 0
