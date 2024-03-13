@@ -1,4 +1,4 @@
-module Class_03_05_24.Romancal where
+module Main where
 
 roman :: [(String, Int)]
 roman =
@@ -50,8 +50,8 @@ numberToRoman num
     largestSmallerRoman num
       | romans == [] = ""
       | otherwise =
-        let (r, v) = last romans
-        in r ++ numberToRoman (num - v)
+          let (r, v) = last romans
+           in r ++ numberToRoman (num - v)
       where
         romans :: [(String, Int)]
         romans = filter (\n -> snd n <= num) roman
@@ -59,13 +59,19 @@ numberToRoman num
 expr :: [(String, Int -> Int -> Int)]
 expr = [("+", (+)), ("-", (-)), ("*", (*)), (":", div), ("%", mod)]
 
-
-callRoman :: String -> String
-callRoman input = input ++ " = " ++ result (words input)
+calRoman :: String -> String
+calRoman input = input ++ " = " ++ result (words input)
   where
     result :: [String] -> String
-    result (x:y:z:xs) = numberToRoman (getOperation y (romanToNumber x) (romanToNumber z))
+    result (x : y : z : xs) = numberToRoman (getOperation y (romanToNumber x) (romanToNumber z))
 
     getOperation :: String -> Int -> Int -> Int
     getOperation y = snd (head (filter (\n -> fst n == y) expr))
 
+{- main :: IO ()
+main = do
+  strings <- getContents
+  mapM_ putStrLn $ map calRoman $ lines strings -}
+
+main :: IO ()
+main = mapM_ putStrLn . map calRoman . lines =<< getContents
