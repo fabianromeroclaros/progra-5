@@ -5,14 +5,17 @@ import Data.Char (isDigit)
 data Factor = Lit Integer
     | Negative Factor
     | Parenthesis Expression
+    deriving (Show)
 
 data Term = SingleFactor Factor
     | Div Factor Term
     | Mul Factor Term
+    deriving (Show)
 
 data Expression = SingleTerm Term
     | Sub Term Expression
     | Add Term Expression
+    deriving (Show)
 
 evalExpression :: Expression -> Integer
 evalExpression (SingleTerm t) = evalTerm t
@@ -22,7 +25,7 @@ evalExpression (Sub t e) = evalTerm t - evalExpression e
 evalTerm :: Term -> Integer
 evalTerm (SingleFactor f) = evalFactor f
 evalTerm (Mul f t) = evalFactor f * evalTerm t
-evalTerm (Div f t) = evalFactor f `div` evalTerm t
+evalTerm (Div f t) = evalFactor f * modpow (evalTerm t) (p-2) p
 
 evalFactor :: Factor -> Integer
 evalFactor (Lit i) = i
@@ -48,6 +51,12 @@ parseFactor (op:xs) = case op of
     '-' -> let (f,rest) = parseFactor xs in (Negative f, rest)
     '(' -> let (e,')':rest) = parseExpression xs in (Parenthesis e, rest)
     otherwise -> (Lit . read $ takeWhile isDigit (op:xs), dropWhile isDigit (op:xs))
+
+modpow :: Integer -> Integer -> Integer -> Integer
+modpow _ 0 _ = 1
+modpow b e m 
+    | e == 0 = 1
+    | otherwise = modpow (b*b `mod` m) (e `div` 2) m * (if e `mod` 2 == 1 then b else 1) `mod` m
 
 p :: Integer
 p = 1000000007;
