@@ -61,7 +61,7 @@ scan [] _ _ = []
 scan (x : xs) l c
   | x == '!' = Token Keyword [x] l c : scan xs l (c + 1)
   | x == '#' = Token Keyword [x] l c : scan xs l (c + 1)
-  | x == '\t' = scan xs l (c + 1)
+  | x == ' ' = scan xs l (c + 1)
   | x == '\n' = scan xs (l + 1) 1
   | x == ';' = scan (dropWhile (/= '\n') xs) (l + 1) 1
   | x == '{' = Token OpenBlock [x] l c : scan xs l (c + 1)

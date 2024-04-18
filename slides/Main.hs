@@ -10,9 +10,3 @@ main = do input <- readFile "slide.p5"
           putStrLn(show token) 
           tree <- parseIO pSlides token
           putStrLn (show tree)
-
-
-{- 
-
-    Alex Lexer haskell
- -}
