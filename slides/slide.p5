@@ -1,11 +1,31 @@
+&
+    ! Caratule Title
+    = Caratule Subtitle
+&
+
 ! Slide 1
 {
 # h1 Hola SLide 1
-    asdasdasd 
-    asdasdasdasd
-    Spacedas
-    das
-    dasasd
+asdasdasd
+asdasdasdasd 
+Spacedas
+das
+**bold text** hola
+dasasd
+*italic text*
+<autolink text>
+
+&
+bullet point
+bullet point
+bullet point
+&
+
+%
+number point
+number point 
+number point
+%
 }
 
 ---
@@ -16,6 +36,10 @@
 ! Slide 2
 {
 # Hola Slide 2
-
+## Hola H2 Slide 2
+### Hola H3 Slide 2
+#### Hola H4 Slide 2
+##### Hola H5 Slide 2
+###### Hola H6 Slide 2
 }
 --- 

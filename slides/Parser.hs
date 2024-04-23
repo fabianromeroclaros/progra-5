@@ -1,8 +1,8 @@
 module Parser where
 
-import UU.Parsing 
-import Scanner 
 import AbstractGrammar
+import Scanner
+import UU.Parsing
 
 pSlides = Slides <$> pList pSlide
 
@@ -34,8 +34,28 @@ pEndSlide = tSym EndSlide
 
 pStrings = tStr
 
-pBodySlide = BodySlide <$ pOpenBlock "{" <*> pList  pMarkdownBlock <* pEndBlock "}"
+pBodySlide = BodySlide <$ pOpenBlock "{" <*> pList pMarkdownBlock <* pEndBlock "}"
 
+
+pMarkdownBlock :: Parser Token MarkdownBlock
 pMarkdownBlock = MdParagraph <$> pStrings
-                <|> MdH1 <$ pKeyword "#" <*> pStrings
+    <|> pAutoLinkBlock
+    <|> HeaderBlock H1 <$ pKeyword "#" <*> pStrings
 
+pAutoLinkBlock :: Parser Token MarkdownBlock
+pAutoLinkBlock = pURL
+
+pURL :: Parser Token MarkdownBlock
+pURL = AutoLinkBlock URL <$ pKeyword "<" <*> pStrings <* pKeyword ">"
+
+pEMAIL :: Parser Token MarkdownBlock
+pEMAIL = AutoLinkBlock URL <$ pKeyword "<" <*> pStrings <* pKeyword ">"
+
+pEmphasizeBlock :: Parser Token MarkdownBlock
+pEmphasizeBlock = pItalicBlock <|> pBoldBlock
+
+pBoldBlock :: Parser Token MarkdownBlock
+pBoldBlock = EmphasizeBlock Bold <$ (pKeyword "**" <|> pKeyword "__") <*> pStrings <* (pKeyword "**" <|> pKeyword "__")
+
+pItalicBlock :: Parser Token MarkdownBlock
+pItalicBlock = EmphasizeBlock Italic <$ (pKeyword "*" <|> pKeyword "_") <*> pStrings <* (pKeyword "*" <|> pKeyword "_")
