@@ -1,0 +1,113 @@
+!! CHELSEA
+? Dark
+; | https://getwallpapers.com/wallpaper/full/8/b/6/1048316-most-popular-pacman-wallpaper-2560x1440-for-4k-monitor.jpg
+; | https://wallpapers.com/images/hd/chelsea-fc-logo-on-blue-flag-m9e93wypi92vcfuf.jpg
+;| https://c4.wallpaperflare.com/wallpaper/879/491/807/chelsea-fc-soccer-soccer-clubs-premier-league-wallpaper-preview.jpg
+| https://i2.wp.com/www.myfreeslides.com/wp-content/uploads/2020/04/Free-Waves-Background-for-presentation.png?fit=1920%2C1080&ssl=1
+{
+# Chelsea
+$
+#### Fabián Romero Claros
+}
+
+---
+
+! Slide 1
+? Dark
+{
+# h1 Hola SLide 1
+asdasdasd
+asdasdasdasd 
+Spacedas
+das
+**bold text 1**
+__bold text 2__
+dasasd
+_italic text 1_
+*italic text 2*
+<https://es.wikipedia.org/wiki/Chelsea_Football_Club>
+[https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/800px-Chelsea_FC.svg*.png]
+}
+
+---
+! Club Achievements
+? Dark
+| background-example.jpg
+{
+[https://c4.wallpaperflare.com/wallpaper/799/418/374/chelsea-fc-champions-league-trophy-football-soccer-hd-wallpaper-preview.jpg]
+
+$
+$
+- UEFA Champions League Titles: 2
+- Premier League Titles: 6
+- UEFA Europa League Titles: 2
+- UEFA Supercup Titles: 2
+- Club World Cup Titles: 1
+- Community Shield Titles: 6
+- FA Cup Wins: 8
+- League Cup Victories: 5
+}
+
+---
+
+
+; Este es un comentario
+
+
+! Slide 3
+| https://img.freepik.com/free-vector/blue-geometric-minimal-background_53876-99573.jpg?size=626&ext=jpg 
+{
+# Hola H1 Slide 3
+## Hola H2 Slide 3
+### Hola H3 Slide 3
+#### Hola H4 Slide 3
+##### Hola H5 Slide 3
+###### Hola H6 Slide 3
+
+% Number Point 1
+% Number Point 2
+% Number Point 3
+% Number Point 4
+}
+--- 
+
+; ! Slide 3
+? Dark
+| https://i.pinimg.com/originals/45/71/90/4571905d5d983312d1179b508de40197.jpg
+{
+- Item list 1
+- Item list 2
+- Item list 3
+- Item list 4
+
+`
+const greet = (name) => {
+    return "Hello " + name;
+};
+console.log(greet('World'));
+`
+
+`
+main :: IO ()
+main = do input <- readFile "slide.p5"
+          let token = scanner input
+          putStrLn(show token) 
+          tree <- parseIO pSlides token
+          putStrLn (show tree)
+          putStrLn (generateHTML tree)
+          writeFile "presentation/index.html" (generateHTML tree)
+`
+
+
+}
+
+---
+
+! Slide 3
+? Dark
+| https://www.ppt-backgrounds.net/thumbs/pure-black--997199-image-presentation.jpeg
+{
+    # Hola
+}
+
+---

@@ -12,4 +12,4 @@ main = do input <- readFile "slide.p5"
           tree <- parseIO pSlides token
           putStrLn (show tree)
           putStrLn (generateHTML tree)
-          writeFile "index.html" (generateHTML tree)
+          writeFile "presentation/index.html" (generateHTML tree)

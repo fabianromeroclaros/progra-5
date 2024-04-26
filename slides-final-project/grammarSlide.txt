@@ -1,0 +1,36 @@
+Slides ::= Slide
+
+Slide ::= BoldySlide '---'
+
+BoldySlide ::= Title? Body
+
+Title = '!' Space Paragraph
+
+Body ::= '{' MarckdownBlock '}'
+
+MarckdownBlock = Paragraph 
+Paragraph = String { String }
+
+----------------------------------------------------
+H1 = "#" String
+H2 = "##" String
+H3 = "###" String
+H4 = "####" String
+H5 = "#####" String
+H6 = "######" String
+AutoLink = "<" String ">";
+Emphasize = Bold | Italic
+Bold = "**" String "**" |
+        "__" String "__";
+Italic = "*" String "*" |
+            "_" String "_";
+
+Image = "[" String "]"
+BulletPoint = "-" String
+NumberPoint = "% String
+BigTitle = "!!" String
+Theme = "?" "Dark" | "Light"
+BgImage = "|" String
+LineBreak = "$"
+Code = "`" String "`"
+
